@@ -1,0 +1,48 @@
+        bool loop;
+        int x;
+        if(head == NULL)
+        {
+            return NULL;
+        }
+        ListNode *aux = head;
+        ListNode *aux2 = aux;
+        while(aux->next != NULL)
+        {
+            loop = true;
+            aux2= head;
+            x=0;
+            while(loop)
+            {
+                if(aux == aux2->next) 
+                {
+                    x++;
+                    
+                    if(x>1)
+                    {
+                        
+                    return aux2;
+                    
+                    }
+                }
+                if(aux2->next == head)
+                {
+                    return head;
+                    loop = false;
+                }
+                if(aux2->next == aux->next)
+                {
+                    loop = false;
+                }
+                
+                if(aux2->next == NULL)
+                {
+                    loop = false;
+                }
+                
+                aux2 = aux2->next;
+            }
+            
+            aux = aux->next;
+        }
+        return NULL;
+        
